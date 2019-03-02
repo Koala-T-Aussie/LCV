@@ -1,2 +1,2 @@
-# LCV
-my work for the lcv
+# Canvassing code
+code for offline canvassing
