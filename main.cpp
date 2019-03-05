@@ -24,7 +24,7 @@ int main()
     string canvass, option, decision;
 	int vary, choice, i, j, k;
     choice = 1;
-    i = 1;
+    i = 0;
     j = 0;
     k = 0;
     ofstream outfile, outfile2;
@@ -37,12 +37,12 @@ int main()
 	cout << "Canvasser First Name: ";
 	cin >> canvass;
 	cout << endl;
-	outfile << canvass << endl << endl;
+	outfile << "session " << canvass << endl << endl;
 
 	//creates a vector of objects
 	vector<Person> indivs;
 
-    //while loop to repeat for each signee
+    //while loop to repeat for each door
     while (choice == 1) {
         cout << "Did they answer the door? (y/n): ";
         cin >> option;
@@ -54,7 +54,8 @@ int main()
             //counter for how many engaged
             j++;
             if (decision == "y") {
-                //put the most of the already written loop here
+                //counter for how many sign
+                i++;
                 cout << "League of Conservation Voters" << endl;
                 cout << "By taking this action, you are affirming your membership in the League of Conservation Voters ('LCV') and Virginia "
                      << "League of Conservation Voters ('VALCV') and will receive regular LCV and VALCV communications such as text messages "
@@ -168,9 +169,6 @@ int main()
                          << "," << indivs[i - 1].age << "," << indivs[i - 1].address << "," << indivs[i - 1].zip
                          << "," << indivs[i - 1].number << "," << indivs[i - 1].area << "," << indivs[i - 1].numtype
                          << "," << indivs[i - 1].email << "," << indivs[i - 1].mailtype << endl;
-
-                //increase i for next signee
-                i++;
             }
         }
 
@@ -183,9 +181,13 @@ int main()
         system ("CLS");
     }
 
+    outfile << "doors knocked this session: " << k << endl;
+    outfile << "people engaged this session: " << j << endl;
+
     //close the text file
     outfile.close();
     outfile2.close();
 
     return 0;
 }
+
